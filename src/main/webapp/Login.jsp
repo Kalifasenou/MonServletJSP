@@ -10,7 +10,7 @@
 	<div class="container" >
   		<div class="screen">
    			<div class="screen__content">
-      			<form class="login" action="MonServlet2" method="post">
+      			<form class="login" action="MonServlet2" method="get">
        			 	<div class="login__field">
           				<i class="login__icon fas fa-user"></i>
           				<input type="text" name="pseudo" class="login__input" placeholder="Pseudo">
