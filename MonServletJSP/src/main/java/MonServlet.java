@@ -46,11 +46,9 @@ public class MonServlet extends HttpServlet {
 		//doGet(request, response);
 		//request.getRequestDispatcher("/Accueil.jsp").forward(request, response);
 		HttpSession session = request.getSession();
-		
 		List<utilisateur> liste = (List)session.getAttribute("liste");
 		if (liste==null) {
-			liste= new ArrayList();
-		}
+			liste= new ArrayList();	}
 		String Nom = request.getParameter("nom");
 		String Prenom = request.getParameter("prenom");
 		String Pseudo = request.getParameter("pseudo");
@@ -72,19 +70,18 @@ public class MonServlet extends HttpServlet {
 				
 				request.setAttribute("utilisateur", user_1);
 				liste.add(user_1);
-				System.out.println(user_1.getNom());
-				System.out.println(liste.get(0).getNom());
 				session.setAttribute("liste", liste);
 				
 				this.getServletContext().getRequestDispatcher("/Accueil.jsp").forward(request, response);
+							} else {
+								erreur= "Veuillez un même mot de passe";
+								request.setAttribute("Erreur_Mdp", erreur);
+								this.getServletContext().getRequestDispatcher("/Inscrire.jsp").forward(request, response);
+							}  
 			} else {
-				erreur= "Veuillez un même mot de passe";
-				request.setAttribute("Erreur_Mdp", erreur);
-				this.getServletContext().getRequestDispatcher("/Inscrire.jsp").forward(request, response);
-			}  
-		} else {
 			erreur = "Veuillez remplir tout les champs";
-			this.getServletContext().getRequestDispatcher("/Inscrire.jsp").forward(request, response);	
+			this.getServletContext().getRequestDispatcher("/Inscrire.jsp").forward(request, response);
+			
 		}
 				
 	}

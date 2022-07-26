@@ -34,7 +34,7 @@
 					</tr>
 			</thead>
 			<tbody>
-				<% List<utilisateur> users= (ArrayList<utilisateur>) session.getAttribute("liste");
+				<% List<utilisateur> users= (ArrayList<utilisateur>) session.getAttribute("liste"); 
 					for (utilisateur user : users) {%>
 					<tr>
 						<td><% out.print(user.getNom()); %></td>   
